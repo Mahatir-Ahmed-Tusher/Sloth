@@ -31,56 +31,63 @@ export const GetWorkspace = query({
     workspaceId:v.id('workspace')
   },
   handler: async (ctx, args) =>{
-    const result = await ctx.db.get(args.workspaceId);
-    return result;
+    try {
+      const result = await ctx.db.get(args.workspaceId);
+      return result;
+    } catch (error) {
+      console.error("Error fetching workspace:", error);
+      return null;
+    }
   }
 })
 
-export const UpdateMessages= mutation({
+export const UpdateMessages = mutation({
   args:{
     workspaceId:v.id('workspace'),
     message:v.any()
   },
   handler:async (ctx, args)=>{
-    const result=await ctx.db.patch(args.workspaceId,{message:args.message})
-    return result;
+    try {
+      const result = await ctx.db.patch(args.workspaceId, {message: args.message})
+      return result;
+    } catch (error) {
+      console.error("Error updating messages:", error);
+      throw error;
+    }
   }
 })
-export const UpdateFiles= mutation({
+
+export const UpdateFiles = mutation({
   args:{
     workspaceId:v.id('workspace'),
     fileData:v.any()
   },
   handler:async (ctx, args)=>{
-    const result=await ctx.db.patch(args.workspaceId,{fileData:args.fileData})
-    return result;
+    try {
+      const result = await ctx.db.patch(args.workspaceId, {fileData: args.fileData})
+      return result;
+    } catch (error) {
+      console.error("Error updating files:", error);
+      throw error;
+    }
   }
 })
 
-// Migration mutation to update existing workspace records
-export const MigrateUserIds = mutation({
-  args: {},
-  handler: async (ctx) => {
-    // Get all workspace records
-    const workspaces = await ctx.db.query('workspace').collect();
-    
-    for (const workspace of workspaces) {
-      try {
-        // Get the user ID string and replace the table name
-        const oldUserId = workspace.user.toString();
-        if (oldUserId.includes('user_')) {
-          // Convert old user ID to new users ID format
-          const newUserId = oldUserId.replace('user_', 'users_');
-          
-          // Update the workspace with the new user ID format
-          await ctx.db.patch(workspace._id, {
-            user: newUserId as any
-          });
-        }
-      } catch (error) {
-        console.error('Error migrating workspace:', workspace._id, error);
-      }
+export const GetUserWorkspaces = query({
+  args: {
+    userId: v.id('users')
+  },
+  handler: async (ctx, args) => {
+    try {
+      const workspaces = await ctx.db
+        .query('workspace')
+        .filter((q) => q.eq(q.field('user'), args.userId))
+        .order('desc')
+        .take(10);
+      return workspaces;
+    } catch (error) {
+      console.error("Error fetching user workspaces:", error);
+      return [];
     }
-    return "Migration completed";
   }
-});
+})

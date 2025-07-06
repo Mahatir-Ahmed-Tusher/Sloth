@@ -3,11 +3,11 @@ import dedent from "dedent";
 export default {
   SUGGESTIONS: ['Create ToDo App in React', 'Create Budget Track App', 'Create Gym Management Portal Dashboard', 'Create Quiz App On History', 'Create Login Signup Screen'],
   HERO_HEADING: 'What do you want to build?',
-  HERO_DESC: 'Prompt, run, edit, and deploy full-stack web apps.',
-  INPUT_PLACEHOLDER: 'What you want to build?',
-  SIGNIN_HEADING: 'Continue With Bolt.New 2.0',
-  SIGNIN_SUBHEADING: 'To use Bolt you must log into an existing account or create one.',
-  SIGNIN_AGREEMENT_TEXT: 'By using Bolt, you agree to the collection of usage data for analytics.',
+  HERO_DESC: 'Prompt, run, edit, and deploy full-stack web apps with the power of AI.',
+  INPUT_PLACEHOLDER: 'Describe your app idea...',
+  SIGNIN_HEADING: 'Welcome to Sloth',
+  SIGNIN_SUBHEADING: 'To use Sloth you must log into an existing account or create one.',
+  SIGNIN_AGREEMENT_TEXT: 'By using Sloth, you agree to the collection of usage data for analytics.',
 
   DEFAULT_FILE: {
     '/public/index.html': {
@@ -90,24 +90,22 @@ export default config;
       name:'Starter',
       tokens:'120K',
       value:120000,
-      desc:'Designed for professionals who need to use Bolt a few times per week.',
+      desc:'Designed for professionals who need to use Sloth a few times per week.',
       price:9.99
     },
     {
       name:'Pro',
       tokens:'2.5M',
       value:2500000,
-      desc:'Designed for professionals who need to use Bolt a few times per week.',
+      desc:'Designed for professionals who need to use Sloth a few times per week.',
       price:19.99
     },
     {
-      name:'Unlimted (License)',
-      tokens:'Unmited',
+      name:'Unlimited (License)',
+      tokens:'Unlimited',
       value:999999999,
-      desc:'Designed for professionals who need to use Bolt a few times per week.',
+      desc:'Designed for professionals who need to use Sloth a few times per week.',
       price:49.99
     }
   ]
-
-
 }

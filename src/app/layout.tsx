@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-
 import "./globals.css";
 import { ThemeProvider } from "@/app/components/theme-provider"
-import Header from "./components/Header";
 import React from "react";
 import { ConvexClientProvider } from "./components/ConvexClientProvider";
 
 export const metadata: Metadata = {
-  title: "bolt.new",
-  description: "Create Fullstack apps",
+  title: "Sloth - Build with ease",
+  description: "Create Fullstack apps with AI",
 };
 
 export default function RootLayout({
@@ -19,20 +17,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="shortcut icon" href="https://bolt.new/static/favicon.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/sloth.png" type="image/png" />
       </head>
-      <body >
-      <ConvexClientProvider>
-
-        <ThemeProvider
+      <body className="dot-grid">
+        <ConvexClientProvider>
+          <ThemeProvider
             attribute="class"
-            defaultTheme="dark"
+            defaultTheme="light"
             enableSystem
-            disableTransitionOnChange >
-              <Header/>
+            disableTransitionOnChange 
+          >
             {children}
           </ThemeProvider>
-      </ConvexClientProvider>
+        </ConvexClientProvider>
       </body>
     </html>
   );
