@@ -1,6 +1,12 @@
-# 🦥 Sloth
+![image](https://github.com/user-attachments/assets/5a08f213-a426-4ec9-9bd6-d26de0e2488b)
+
+
+# 🦥 Sloth-AI Web Builder
 
 **Sloth** is a no-code/low-code AI-powered platform that lets you build, edit, and deploy full-stack web applications just by describing your idea. With Sloth, you can turn your concepts into production-ready web apps in minutes—no coding required!
+
+![image](https://github.com/user-attachments/assets/a2577f91-8053-475f-9fa2-d80913449280)
+
 
 ---
 
@@ -22,6 +28,9 @@ Sloth is an AI-driven web application builder. You simply describe your app idea
 - **Subscription Plans**: Flexible pricing for hobbyists, professionals, and unlimited users.
 - **Export & Download**: Download your generated code as a ZIP file.
 - **FAQ, Help, and Terms Pages**: Built-in support and documentation.
+
+  ![Sloth demo](https://github.com/user-attachments/assets/7771dba1-29b5-4917-b576-9fa64b86e375)
+
 
 ---
 
